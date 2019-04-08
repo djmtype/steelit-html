@@ -9,13 +9,16 @@
 
 <channel>
 	<title>Steel It, Inc.</title>
-	<atom:link href="https://steelitinc.com/feed/" rel="self" type="application/rss+xml" />
+	<atom:link href="http://steelit.hostha.us/feed/" rel="self" type="application/rss+xml" />
 	<link>/</link>
 	<description>STEEL IT, a South Carolina authorized fabricator of NUCONSTEEL&#174;, America&#8217;s fastest growing light gauge steel framing company.</description>
-	<lastBuildDate>Thu, 03 May 2018 18:33:17 +0000</lastBuildDate>
+	<lastBuildDate>
+	Mon, 08 Apr 2019 13:56:54 +0000	</lastBuildDate>
 	<language>en-US</language>
-	<sy:updatePeriod>hourly</sy:updatePeriod>
-	<sy:updateFrequency>1</sy:updateFrequency>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
 	
 </channel>
 </rss>
