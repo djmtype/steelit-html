@@ -1066,11 +1066,11 @@ FileETag None
 <IfModule mod_expires.c>
 
     ExpiresActive on
-    ExpiresDefault                                      "access plus 9 months"
+    ExpiresDefault                                      "access plus 1 month"
 
   # CSS
 
-    ExpiresByType text/css                              "access plus 2 years"
+    ExpiresByType text/css                              "access plus 1 year"
 
 
   # Data interchange
@@ -1100,9 +1100,9 @@ FileETag None
 
   # JavaScript
 
-    ExpiresByType application/javascript                "access plus 2 years"
-    ExpiresByType application/x-javascript              "access plus 2 years"
-    ExpiresByType text/javascript                       "access plus 2 years"
+    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/x-javascript              "access plus 1 year"
+    ExpiresByType text/javascript                       "access plus 1 year"
 
 
   # Manifest files
@@ -1119,48 +1119,48 @@ FileETag None
 
   # Media files
 
-    ExpiresByType audio/ogg                             "access plus 9 months"
-    ExpiresByType image/bmp                             "access plus 9 months"
-    ExpiresByType image/gif                             "access plus 9 months"
-    ExpiresByType image/jpeg                            "access plus 9 months"
-    ExpiresByType image/png                             "access plus 9 months"
-    ExpiresByType image/svg+xml                         "access plus 9 months"
-    ExpiresByType image/webp                            "access plus 9 months"
-    ExpiresByType video/mp4                             "access plus 9 months"
-    ExpiresByType video/ogg                             "access plus 9 months"
-    ExpiresByType video/webm                            "access plus 9 months"
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/bmp                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+    ExpiresByType image/webp                            "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
 
 
   # WebAssembly
 
-    ExpiresByType application/wasm                      "access plus 2 years"
+    ExpiresByType application/wasm                      "access plus 1 year"
 
 
   # Web fonts
 
     # Collection
-    ExpiresByType font/collection                       "access plus 9 months"
+    ExpiresByType font/collection                       "access plus 1 month"
 
     # Embedded OpenType (EOT)
-    ExpiresByType application/vnd.ms-fontobject         "access plus 9 months"
-    ExpiresByType font/eot                              "access plus 9 months"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType font/eot                              "access plus 1 month"
 
     # OpenType
-    ExpiresByType font/opentype                         "access plus 9 months"
-    ExpiresByType font/otf                              "access plus 9 months"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType font/otf                              "access plus 1 month"
 
     # TrueType
-    ExpiresByType application/x-font-ttf                "access plus 9 months"
-    ExpiresByType font/ttf                              "access plus 9 months"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/ttf                              "access plus 1 month"
 
     # Web Open Font Format (WOFF) 1.0
-    ExpiresByType application/font-woff                 "access plus 9 months"
-    ExpiresByType application/x-font-woff               "access plus 9 months"
-    ExpiresByType font/woff                             "access plus 9 months"
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/x-font-woff               "access plus 1 month"
+    ExpiresByType font/woff                             "access plus 1 month"
 
     # Web Open Font Format (WOFF) 2.0
-    ExpiresByType application/font-woff2                "access plus 9 months"
-    ExpiresByType font/woff2                            "access plus 9 months"
+    ExpiresByType application/font-woff2                "access plus 1 month"
+    ExpiresByType font/woff2                            "access plus 1 month"
 
 
   # Other
@@ -1221,3 +1221,19 @@ FileETag None
 #     RewriteCond %{REQUEST_FILENAME} !-f
 #     RewriteRule ^(.+)\.(\w+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|png|svgz?|webp|webmanifest)$ $1.$3 [L]
 # </IfModule>
+
+
+# One year for image files
+<filesMatch ".(jpg|jpeg|png|gif|ico)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+
+# One month for css and js
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+# One year for ttf and woff
+<filesMatch ".(ttf|woff)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
